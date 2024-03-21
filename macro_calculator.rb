@@ -93,7 +93,7 @@ class Food
 
   def single_macros
     pp "--------------------------------"
-    pp "SINGLE SERVING OF #{self.name.upcase}!"
+    pp "MACROS FOR A SINGLE SERVING OF #{self.name.upcase}!"
     pp "One serving is #{self.grams_per_serving} grams."
     pp "Calories per serving: #{self.calories}."
     pp "Proteins per serving: #{self.proteins} grams."
