@@ -8,6 +8,7 @@ class Food
   attr_accessor :fats
   attr_accessor :fibers
 
+  #initializing a food class using nutritional facts and name.
   def initialize(name, servings, grams_per_serving, calories, proteins, carbs, fats, fibers)
     self.name = name
     self.servings = servings
@@ -19,6 +20,7 @@ class Food
     self.fibers = fibers
   end
 
+  #receives user input for the name and capitalizes.
   def name=(value)
     unless value.is_a?(String)
       raise TypeError, 'Name must be a string'
@@ -26,6 +28,7 @@ class Food
     @name = value.capitalize
   end
 
+    #receives user input for the total number of servings and verifies it as number.
   def servings=(value)
     unless value.is_a?(Integer)
       raise TypeError, 'Servings must be an integer'
@@ -33,6 +36,7 @@ class Food
     @servings = value
   end
 
+#receives user input for the grams per serving and verifies it as number
   def grams_per_serving=(value)
     unless value.is_a?(Integer)
       raise TypeError, 'Grams per serving must be an integer'
@@ -40,6 +44,7 @@ class Food
     @grams_per_serving = value
   end
 
+#receives user input for the calories per serving and verifies it as number
   def calories=(value)
     unless value.is_a?(Integer)
       raise TypeError, 'Calories must be an integer'
@@ -47,6 +52,7 @@ class Food
     @calories = value
   end
 
+#receives user input for the proteins per serving and verifies it as number
   def proteins=(value)
     unless value.is_a?(Integer)
       raise TypeError, 'Protein must be an integer'
@@ -54,6 +60,7 @@ class Food
     @proteins = value
   end
 
+#receives user input for the carbs per serving and verifies it as number
   def carbs=(value)
     unless value.is_a?(Integer)
       raise TypeError, 'Carbs must be an integer'
@@ -61,6 +68,7 @@ class Food
     @carbs = value
   end
 
+#receives user input for the fats per serving and verifies it as number
   def fats=(value)
     unless value.is_a?(Integer)
       raise TypeError, 'Fats must be an integer'
@@ -68,6 +76,7 @@ class Food
     @fats = value
   end
 
+  #receives user input for the fibers per serving and verifies it as number
   def fibers=(value)
     unless value.is_a?(Integer)
       raise TypeError, 'Fiber must be an integer'
@@ -75,10 +84,12 @@ class Food
     @fibers = value
   end
 
+  #Multiplies single serving data by the number of servings
   def serving_multiplier(a,b)
     return a * b
   end
 
+  #summery for the total calories and macros for the meal
   def total_macros
     pp "--------------------------------"
     pp "#{self.name.upcase} HAS #{self.servings} SERVINGS!"
@@ -91,6 +102,7 @@ class Food
     pp "--------------------------------"
   end
 
+  #summery for the single serving of calories and macros for the meal
   def single_macros
     pp "--------------------------------"
     pp "MACROS FOR A SINGLE SERVING OF #{self.name.upcase}!"
@@ -106,7 +118,7 @@ class Food
 
 end
 
-
+#console output and user input to intake information amout the meal
 pp "Enter the title of your meal"
  user_title = gets.chomp
 
@@ -131,6 +143,9 @@ pp "Enter the title of your meal"
   pp "Enter fiber per serving"
   user_fibers = gets.chomp.to_i
 
+  #create meal from the food class initializer
   meal = Food.new(user_title, user_servings, user_grams_per_serving, user_calories, user_proteins, user_carbs, user_fats, user_fibers)
+  #run the total macros/calories summery method
 meal.total_macros
+  #run the single serving macros/calories summery method
 meal.single_macros
